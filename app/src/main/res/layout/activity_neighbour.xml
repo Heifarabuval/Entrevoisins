@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context=".profile.NeighbourProfileActivity"
+    android:id="@+id/profile_relative_layout">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_coordinator_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#EBEFF0"
+            android:id="@+id/profile_linear_layout">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.74"
+                android:background="#EBEFF0"
+                android:orientation="horizontal"
+                android:paddingBottom="-0.7dp"
+                >
+                <ImageView
+                    android:id="@+id/item_avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    />
+                <TextView
+                    android:id="@+id/item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prenom"
+                    android:textSize="35dp"
+                    android:textColor="@color/cardview_light_background"
+                    android:textStyle="bold"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/item_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:background="#EBEFF0"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:id="@+id/layout_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_weight="0.5"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="5dp"
+
+                    android:orientation="vertical">
+
+
+
+                    <TextView
+                        android:id="@id/item_name_second"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Prenom"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_weight="0.5"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+
+                        android:background="#EAEFF0"/>
+
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/position"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Villeneuve D'ascq à 5km "
+                            android:textColor="#A5A5A5"
+                            android:layout_marginStart="24dp"
+                            android:textStyle="bold"
+                            android:paddingLeft="15dp"
+                            tools:ignore="MissingConstraints" />
+
+                        <ImageButton
+                            android:id="@+id/button_position"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:background="@null"
+                            android:clickable="true"
+                            app:srcCompat="@drawable/ic_home_24px"
+                            tools:ignore="MissingConstraints"
+
+                            />
+
+                    </android.support.constraint.ConstraintLayout>
+
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
+
+
+
+
+                        <TextView
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="+3366436391"
+                            android:textColor="#A5A5A5"
+                            android:layout_marginStart="24dp"
+                            android:textStyle="bold"
+                            android:paddingLeft="15dp"
+                            tools:ignore="MissingConstraints" />
+
+                        <ImageButton
+                            android:id="@+id/button_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:background="@null"
+                            android:clickable="true"
+
+                            app:srcCompat="@drawable/ic_phone_24px"
+                            tools:ignore="MissingConstraints" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/social"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="www.facebook.fr/name"
+                            android:textColor="#A5A5A5"
+                            android:layout_marginStart="24dp"
+                            android:textStyle="bold"
+                            android:paddingLeft="15dp"
+                            tools:ignore="MissingConstraints" />
+
+                        <ImageButton
+                            android:id="@+id/button_social"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:background="@null"
+                            android:clickable="true"
+                            app:srcCompat="@drawable/ic_public_24px"
+                            tools:ignore="MissingConstraints"
+
+
+                            />
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/layout_apropos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:layout_weight="0.5"
+                    android:layout_margin="8dp"
+                    android:orientation="vertical"
+
+                    >
+                    <TextView
+                        android:text="A propos de moi "
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+
+                        android:background="#EAEFF0"/>
+                    <TextView
+                        android:id="@+id/about_me"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:text="Bonjour ! Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner! J'aime les jeux de cartes tel la belote et le tarot..."/>
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/item_favoris"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+
+            android:clickable="true"
+            android:src="@drawable/ic_star_white_24dp"
+            app:layout_anchor="@id/item_avatar"
+
+            app:layout_anchorGravity="bottom|right|end"
+            app:backgroundTint="#F5F5F5"
+            app:rippleColor="#0F0707" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+
+
+
+
+    </RelativeLayout>

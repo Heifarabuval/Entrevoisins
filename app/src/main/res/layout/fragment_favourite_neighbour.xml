@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/constraint_layout_favourite"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+
+    <ImageView
+        android:id="@+id/item_list_avatar_favourite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_list_name_favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_avatar_favourite"
+        app:layout_constraintStart_toEndOf="@+id/item_list_avatar_favourite"
+        app:layout_constraintTop_toTopOf="@+id/item_list_avatar_favourite" />
+
+    <ImageButton
+        android:id="@+id/item_list_delete_button_favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginEnd="35dp"
+        android:padding="30dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/item_list_name_favourite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/item_list_name_favourite"
+        app:srcCompat="@drawable/ic_delete_white_24dp" />
+
+</android.support.constraint.ConstraintLayout>

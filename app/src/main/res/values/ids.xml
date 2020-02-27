@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="item_name_profile" type="id" />
+    <item name="item_name_second" type="id" />
+    <item name="item_list_avatar_favourite" type="id" />
+    <item name="item_list_name_favourite" type="id" />
+    <item name="about_me" type="id" />
+</resources>
