@@ -4,7 +4,7 @@ EntreVoisins est une une mini-application pour le P3 du parcours Grande École d
 
 Configurer le projet dans Android Studio
 
-================================================================================================================
+===============================================================================================
 1. Téléchargez le code du projet, de préférence via git clone.
 
 2. Ouvrez Android Studio et cliquez sur "Check out project from Version Control" et cliquez sur Git.
