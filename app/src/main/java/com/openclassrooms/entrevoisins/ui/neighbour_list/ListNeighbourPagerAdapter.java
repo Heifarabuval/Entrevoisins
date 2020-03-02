@@ -1,13 +1,12 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
-import com.openclassrooms.entrevoisins.di.DI;
 
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
@@ -32,12 +31,23 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position){
             case 0 :
-                return new NeighbourFragment();
+                Bundle data = new Bundle();
+                NeighbourFragmentFusion contact = new NeighbourFragmentFusion();
+                data.putInt("tabPosition",position);
+                contact.setArguments(data);
+                return contact;
+
             case 1 :
-                return new NeighbourFavouriteFragment();
+                Bundle data2 = new Bundle();
+                NeighbourFragmentFusion favoris = new NeighbourFragmentFusion();
+                data2.putInt("tabPosition",position);
+                favoris.setArguments(data2);
+                return  favoris;
                 default:
                     return fragment;
         }
+
+
 
     }
 

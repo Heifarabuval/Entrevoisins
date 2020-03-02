@@ -11,50 +11,56 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.events.DeleteFavouriteNeighbourEvent;
+import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.profile.NeighbourProfileActivity;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-import java.util.ArrayList;
+
 import java.util.List;
 
 
-public class NeighbourFavouriteFragment<itemClickedPosition> extends Fragment implements OnNeighbourListenner {
+public class NeighbourFragmentFusion extends Fragment implements OnNeighbourListenner {
 
     private NeighbourApiService mApiService;
     private List<Neighbour> mFavouriteNeighbour;
+    private List<Neighbour> mNeighbour;
     private RecyclerView mRecyclerView;
     private static int itemClickedPosition ;
     private Neighbour neighbour;
-    private static final String TAG = NeighbourFavouriteFragment.class.getSimpleName();
+    private static final String TAG = NeighbourFragmentFusion.class.getSimpleName();
+    int tabPosition;
 
 
 
 
     /**
      * Create and return a new instance
-     * @return @{@link NeighbourFavouriteFragment}
+     * @return @{@link NeighbourFragmentFusion}
      */
-    public static NeighbourFavouriteFragment newInstance() {
-        return new NeighbourFavouriteFragment();
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: fragment");
         super.onCreate(savedInstanceState);
-
-        mFavouriteNeighbour=new ArrayList<>();
-
-
         mApiService = DI.getNeighbourApiService();
 
+    }
 
 
+
+    private void readBundle(Bundle bundle) {
+        if (bundle != null) {
+            tabPosition=getArguments().getInt("tabPosition");
+
+        }
 
     }
 
@@ -63,29 +69,41 @@ public class NeighbourFavouriteFragment<itemClickedPosition> extends Fragment im
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView() called ");
-        View view = inflater.inflate(R.layout.fragment_neighbour_favourite_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_neighbour_recycler_list, container, false);
         Context context = view.getContext();
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        readBundle(getArguments());
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        initFavouriteList();
+
+        switch (tabPosition){
+            case 0 :
+                mFavouriteNeighbour=mApiService.getNeighbours();
+                break;
+            case 1:
+                mFavouriteNeighbour = mApiService.getFavouriteNeighbours();
+                break; }
+
         return view;
     }
 
     /**
      * Init the List of favourite neighbours
      */
-    private void initFavouriteList() {
-        Log.d(TAG, "initFavouriteList: méthode call");
 
-        mFavouriteNeighbour.clear();
-        for (int i = 0; i < mApiService.getNeighbours().size(); i++) {
-            neighbour = (mApiService.getNeighbours().get(i));
-            if ((neighbour.getFavourite()) == true) {
-                Log.d(TAG, "initFavouriteList: le voisin est favoris");
-                mFavouriteNeighbour.add((mApiService.getNeighbours().get(i)));
-            }
-        }mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mFavouriteNeighbour,this,true));
+    private void initList() {
+        Log.d(TAG, "initFavouriteList: méthode call"+tabPosition);
+
+
+        switch (tabPosition){
+            case 0 :
+                mNeighbour=mApiService.getNeighbours();
+                mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbour,this,false));
+                break;
+            case 1:
+                mFavouriteNeighbour = mApiService.getFavouriteNeighbours();
+                mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mFavouriteNeighbour,this,true));
+                break; }
 
     }
 
@@ -101,13 +119,28 @@ public class NeighbourFavouriteFragment<itemClickedPosition> extends Fragment im
      * Fired if the user clicks on a delete button
      * @param event
      */
+
+
     @Subscribe
     public void onDeleteFavouriteNeighbour(DeleteFavouriteNeighbourEvent event) {
-
-        Log.d(TAG, "onDeleteFavouriteNeighbour");
-        initFavouriteList();
+        initList();
 
     }
+    @Subscribe
+    public void onDeleteNeighbour(DeleteNeighbourEvent event) {
+        mApiService.deleteNeighbour(event.neighbour);
+        initList();
+
+    }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -115,20 +148,19 @@ public class NeighbourFavouriteFragment<itemClickedPosition> extends Fragment im
     public void NeighbourClick(int position) {
         itemClickedPosition = position;
         neighbour = mFavouriteNeighbour.get(position);
+
         Intent intent= new Intent(getContext(), NeighbourProfileActivity.class);
-        intent.putExtra("tabValue",1);
+        intent.putExtra("clicPosition",itemClickedPosition);
+        intent.putExtra("tabPosition",tabPosition);
         startActivity(intent);
 
     }
-    public static int getItemClickedPosition() {
 
-        return itemClickedPosition;
-    }
 
 
     @Override
     public void onStart() {
-        initFavouriteList();
+        initList();
         super.onStart();
         Log.d(TAG, "onStart: fragment");
         EventBus.getDefault().register(this);

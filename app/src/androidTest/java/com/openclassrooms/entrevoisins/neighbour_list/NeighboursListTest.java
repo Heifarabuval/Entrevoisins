@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.espresso.contrib.RecyclerViewActions;
-import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
@@ -16,10 +15,7 @@ import android.view.ViewParent;
 import android.widget.TextView;
 
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.profile.NeighbourProfileActivity;
-import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 import com.openclassrooms.entrevoisins.utils.NeighbourClickAction;
@@ -34,17 +30,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.Collection;
-import java.util.List;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.swipeLeft;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasChildCount;
-import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
-import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -93,23 +85,57 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_shouldNotBeEmpty() {
         // First scroll to the position that needs to be matched and click on it.
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .check(matches(hasMinimumChildCount(1)));
+        ViewInteraction viewPager = onView(
+                allOf(withId(R.id.container),
+                        childAtPosition(
+                                allOf(withId(R.id.main_content),
+                                        childAtPosition(
+                                                withId(android.R.id.content),
+                                                0)),
+                                1),
+                        isDisplayed()));
+        viewPager.check(matches(isDisplayed()));
     }
 
 
     @Test
     public void myFavouriteNeighboursList_shouldNotBeEmpty() {
         // First scroll to the position that needs to be matched and click on it.
-        onView(ViewMatchers.withId(R.id.list_favourite_neighbours))
-                .check(matches(hasMinimumChildCount(1)));
+        ViewInteraction tabView = onView(
+                allOf(withContentDescription("Favorites"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.tabs),
+                                        0),
+                                1),
+                        isDisplayed()));
+        tabView.perform(click());
+
+        ViewInteraction viewPager = onView(
+                allOf(withId(R.id.container),
+                        childAtPosition(
+                                allOf(withId(R.id.main_content),
+                                        childAtPosition(
+                                                withId(android.R.id.content),
+                                                0)),
+                                1),
+                        isDisplayed()));
+        viewPager.perform(swipeLeft());
+
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.list_fusion_neighbours),
+                        withParent(allOf(withId(R.id.container),
+                                childAtPosition(
+                                        withId(R.id.main_content),
+                                        1))),
+                        isDisplayed()));
+        recyclerView.check(matches(isDisplayed()));
     }
 
 
     @Test
     public void neighbourProfileActivity_good_name() {
-
-        onView(ViewMatchers.withId(R.id.list_neighbours))
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours)))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(4,new NeighbourClickAction()));
         onView(withText("Elodie")).check(matches(isDisplayed()));
 
@@ -121,9 +147,10 @@ public class NeighboursListTest {
 
     @Test
     public void neighbourProfileActivity_open_with_success() {
-        onView(withId(R.id.list_neighbours))
-                .perform(actionOnItemAtPosition(4, click()));
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours)))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(4,click()));
         Assert.assertEquals(getActivityInstance().getClass(), NeighbourProfileActivity.class);
+
 
 
 
@@ -146,24 +173,28 @@ public class NeighboursListTest {
                         isDisplayed()));
         tabView.perform(click());
         // Given : We remove the element at position 2
-        onView(ViewMatchers.withId(R.id.list_favourite_neighbours)).check(withItemCount(FAVOURITE_ITEMS_COUNT));
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours))).check(withItemCount(FAVOURITE_ITEMS_COUNT));
         // When perform a click on a delete icon
-        onView(ViewMatchers.withId(R.id.list_favourite_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours)))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1,new DeleteViewAction()));
         // Then : the number of element is 2
-        onView(ViewMatchers.withId(R.id.list_favourite_neighbours)).check(withItemCount(FAVOURITE_ITEMS_COUNT-1));
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours))).check(withItemCount(FAVOURITE_ITEMS_COUNT-1));
     }
 
 
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
+
+
         // Given : We remove the element at position 2
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours))).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours)))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1,new DeleteViewAction()));
+
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours))).check(withItemCount(ITEMS_COUNT-1));
+
     }
 
 
@@ -172,8 +203,15 @@ public class NeighboursListTest {
     @Test
     public void getOnlyFavouriteInFavouriteList() {
 
-
-        onView(ViewMatchers.withId(R.id.list_favourite_neighbours))
+        ViewInteraction tabView = onView(
+                allOf(withContentDescription("Favorites"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.tabs),
+                                        0),                                1),
+                        isDisplayed()));
+        tabView.perform(click());
+        onView(allOf(isDisplayed(),withId(R.id.list_fusion_neighbours)))
                 .check(matches(hasChildCount(FAVOURITE_ITEMS_COUNT)));
 
 
