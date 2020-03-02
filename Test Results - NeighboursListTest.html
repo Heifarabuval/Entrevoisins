@@ -2,7 +2,7 @@
 <html xmlns:str="http://exslt.org/strings" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Test Results &mdash; NeighbourServiceTest</title>
+<title>Test Results &mdash; NeighboursListTest</title>
 <style type="text/css">
           html {
             height: 100%
@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time" xmlns="">23 ms</div>
-<h1>NeighbourServiceTest: <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">5 total, </span><span class="passed">5 passed</span></strong>
+<div class="time" xmlns="">11.70 s</div>
+<h1>NeighboursListTest: <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">7 total, </span><span class="passed">7 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -588,55 +588,51 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="content">
-<ul id="tree">/snap/android-studio/83/android-studio/jre/bin/java -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:/snap/android-studio/83/android-studio/lib/idea_rt.jar=34613:/snap/android-studio/83/android-studio/bin -Dfile.encoding=UTF-8 -classpath /snap/android-studio/83/android-studio/lib/idea_rt.jar:/snap/android-studio/83/android-studio/plugins/junit/lib/junit-rt.jar:/snap/android-studio/83/android-studio/plugins/junit/lib/junit5-rt.jar:/home/profchen/Android/Sdk/platforms/android-28/data/res:/home/profchen/StudioProjects/EntrevoisinsCloneTest/app/build/intermediates/javac/debugUnitTest/classes:/home/profchen/StudioProjects/EntrevoisinsCloneTest/app/build/intermediates/javac/debug/classes:/home/profchen/StudioProjects/EntrevoisinsCloneTest/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar:/home/profchen/StudioProjects/EntrevoisinsCloneTest/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debugAndroidTest/R.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/org.hamcrest/java-hamcrest/2.0.0.0/f1c8853ade0ecf707f5a261c830e98893983813/java-hamcrest-2.0.0.0.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/com.android.support/collections/28.0.0/c1bcdade4d3cc2836130424a3f3e4182c666a745/collections-28.0.0.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/9.0.0/4491662975a6e2aaf8bcd1203a60ace1179c84ee/butterknife-annotations-9.0.0.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.1/207a6efae6a3555e326de41f76bdadd9a239cbce/common-1.1.1.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.1/e55b70d1f5620db124b3e85a7f4bdc7bd48d9f95/common-1.1.1.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/28.0.0/ed73f5337a002d1fd24339d5fb08c2c9d9ca60d8/support-annotations-28.0.0.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.1.3/bde0667d7414c16ed62d3cfe993cff7f9d732373/constraint-layout-solver-1.1.3.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.6/9180733b7df8542621dc12e21e87557e8c99b8cb/gson-2.8.6.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.9.0/cbb185635e8f265d6391c7d43118d3856574dc3a/disklrucache-4.9.0.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.9.0/ccdd6bc8b4f3c001fbddec29ecddd515a13203c4/annotations-4.9.0.jar:/home/profchen/.gradle/caches/modules-2/files-2.1/org.greenrobot/eventbus/3.1.1/5cd91fd014f5b72292f959748c20a2cefefae77d/eventbus-3.1.1.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/c32b0bba32466c659b311b4bb8347b66/design-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/c32b0bba32466c659b311b4bb8347b66/design-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/c0297c05812c4f65312d304e65a3a144/appcompat-v7-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/c0297c05812c4f65312d304e65a3a144/appcompat-v7-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/28f7f2c06e6d4e1d234a983d4d1ff39a/recyclerview-v7-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/28f7f2c06e6d4e1d234a983d4d1ff39a/recyclerview-v7-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/fd222fb2011e66d641e7a2737fef3324/support-v4-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/ac983e1289a23b8f153718f249af6cce/glide-4.9.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/ac983e1289a23b8f153718f249af6cce/glide-4.9.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/a2618dc18ca07e54a88e1f24d6803537/support-fragment-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/93996a009dd58fd05ed812245db0148c/animated-vector-drawable-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/9c5f3b5175d6729ba465ec2c02813385/support-core-ui-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/cbaf6a0ba14e448f931c4916deffd204/support-core-utils-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/1c6ccda4efce2e74613d682566b9d8fb/support-vector-drawable-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/d95281e06b4e9261c89fc7361d5650c4/transition-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/d95281e06b4e9261c89fc7361d5650c4/transition-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/283d8a8c1b9f69920685c5e3d33d66d4/support-media-compat-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/283d8a8c1b9f69920685c5e3d33d66d4/support-media-compat-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/d456385cb30636421c66f107ac812ffd/butterknife-9.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/568b8518ef39072dadb6b2366a81cc67/butterknife-runtime-9.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/88ec4b30f9b9e29ef3a15d6d3ffb6449/loader-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/191c7b8ab8d77f6a24f5ce842273178f/viewpager-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/0764f579f46daee945f58aeb5abd3d1a/coordinatorlayout-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/0764f579f46daee945f58aeb5abd3d1a/coordinatorlayout-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/6964f6c2fba668c314484e4971a1a6d5/drawerlayout-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/0e55d737439e7bb0d601ec0970cbdcd1/slidingpanelayout-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/f2cfd7471df67e524c2f9aad99e9b242/customview-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/0270512caecd2afbe9f94d7ba00b4f2a/swiperefreshlayout-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/cdeb898e0fb7ed657473ea59897852bb/asynclayoutinflater-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/f13e80600485f087c51c6872f934df1c/support-compat-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/f13e80600485f087c51c6872f934df1c/support-compat-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/9542a760233d72187a6f74211f74f1b2/versionedparcelable-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/d1639c8bf8e94297abb50c581095ddbe/cursoradapter-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/b018cea5775c0e88fe24d88d99f9b25d/cardview-v7-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/b018cea5775c0e88fe24d88d99f9b25d/cardview-v7-28.0.0/res:/home/profchen/.gradle/caches/transforms-2/files-2.1/9682238572cd0da0ee6ceb4cd53b1e65/gifdecoder-4.9.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/7970156688ae7a0ec2e1f1305182ea73/runtime-1.1.1/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/d329fbd7fc70709a9d574d7668c34aeb/documentfile-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/8dc2f71e24361876f57f4e40952ea333/localbroadcastmanager-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/4b796eb9c599ac9ee2ee5d647d06fe9d/print-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/34ed514f010d4467a7c9fd5c12828aba/viewmodel-1.1.1/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/643c9b4c66d15fb06eb948b20e42a028/interpolator-28.0.0/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/48abcef0e1bee900bfa1d45255147bf7/livedata-1.1.1/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/b2994ff42e1ca78d899b6efee1f8d9c5/livedata-core-1.1.1/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/db3babe6438b79b4bdeb44206751680a/runtime-1.1.1/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/8ebae898162603b30fa5c6baad8cde97/constraint-layout-1.1.3/jars/classes.jar:/home/profchen/.gradle/caches/transforms-2/files-2.1/8ebae898162603b30fa5c6baad8cde97/constraint-layout-1.1.3/res:/home/profchen/StudioProjects/EntrevoisinsCloneTest/app/build/intermediates/java_res/debugUnitTest/out:/home/profchen/StudioProjects/EntrevoisinsCloneTest/app/build/intermediates/java_res/debug/out:/home/profchen/.gradle/caches/transforms-2/files-2.1/71fb5e18caa379d74bb8c30742508b6b/android.jar com.intellij.rt.execution.junit.JUnitStarter -ideVersion5 -junit4 com.openclassrooms.entrevoisins.service.NeighbourServiceTest
-Process finished with exit code 0
-<li class="level test" xmlns="">
+<ul id="tree">
+<li xmlns="" class="level top open">
 <span><em class="time">
-<div class="time">12 ms</div>
-</em><em class="status">passed</em>NeighbourServiceTest.deleteNeighbourWithSuccess</span>
+<div class="time">11.70 s</div>
+</em>com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest</span>
+<ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">3.04 s</div>
+</em><em class="status">passed</em>getOnlyFavouriteInFavouriteList</span>
 <ul>
 <li class="text">
-<span class="stdout"></span>
+<span class="stdout">Connected to process 14219 on device &#39;samsung-sm_t585-520053c1ee3d1567&#39;.<br/></span>
 </li>
 </ul>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">0 ms</div>
-</em><em class="status">passed</em>NeighbourServiceTest.addNeighbourWithSuccess</span>
-<ul>
-<li class="text">
-<span class="stdout"></span>
-</li>
-</ul>
+<div class="time">2.31 s</div>
+</em><em class="status">passed</em>myFavouriteNeighboursList_shouldNotBeEmpty</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">0 ms</div>
-</em><em class="status">passed</em>NeighbourServiceTest.deleteNeighbourFromFavouriteListWithSuccess</span>
-<ul>
-<li class="text">
-<span class="stdout"></span>
-</li>
-</ul>
+<div class="time">1.71 s</div>
+</em><em class="status">passed</em>myFavouriteNeighboursList_deleteAction_shouldRemoveItem</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">0 ms</div>
-</em><em class="status">passed</em>NeighbourServiceTest.addNeighbourFavouriteWithSuccess</span>
-<ul>
-<li class="text">
-<span class="stdout"></span>
-</li>
-</ul>
+<div class="time">954 ms</div>
+</em><em class="status">passed</em>myNeighboursList_shouldNotBeEmpty</span>
 </li>
 <li class="level test">
 <span><em class="time">
-<div class="time">11 ms</div>
-</em><em class="status">passed</em>NeighbourServiceTest.getNeighboursWithSuccess</span>
-<ul>
-<li class="text">
-<span class="stdout"></span>
+<div class="time">953 ms</div>
+</em><em class="status">passed</em>neighbourProfileActivity_good_name</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">1.23 s</div>
+</em><em class="status">passed</em>myNeighboursList_deleteAction_shouldRemoveItem</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">1.51 s</div>
+</em><em class="status">passed</em>neighbourProfileActivity_open_with_success</span>
 </li>
 </ul>
 </li>
