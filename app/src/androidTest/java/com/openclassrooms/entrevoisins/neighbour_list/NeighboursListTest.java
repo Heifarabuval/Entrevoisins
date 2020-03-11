@@ -106,12 +106,12 @@ public class NeighboursListTest {
                         childAtPosition(
                                 childAtPosition(
                                         withId(R.id.tabs),
-                                        0),
-                                1),
+                                        0),                                1),
                         isDisplayed()));
         tabView.perform(click());
 
-        ViewInteraction viewPager = onView(
+
+        ViewInteraction viewPager2 = onView(
                 allOf(withId(R.id.container),
                         childAtPosition(
                                 allOf(withId(R.id.main_content),
@@ -120,16 +120,7 @@ public class NeighboursListTest {
                                                 0)),
                                 1),
                         isDisplayed()));
-        viewPager.perform(swipeLeft());
-
-        ViewInteraction recyclerView = onView(
-                allOf(withId(R.id.list_fusion_neighbours),
-                        withParent(allOf(withId(R.id.container),
-                                childAtPosition(
-                                        withId(R.id.main_content),
-                                        1))),
-                        isDisplayed()));
-        recyclerView.check(matches(isDisplayed()));
+        viewPager2.check(matches(isDisplayed()));
     }
 
 

@@ -30,10 +30,7 @@ public class NeighbourFragmentFusion extends Fragment implements OnNeighbourList
 
     private NeighbourApiService mApiService;
     private List<Neighbour> mFavouriteNeighbour;
-    private List<Neighbour> mNeighbour;
     private RecyclerView mRecyclerView;
-    private static int itemClickedPosition ;
-    private Neighbour neighbour;
     private static final String TAG = NeighbourFragmentFusion.class.getSimpleName();
     int tabPosition;
 
@@ -97,7 +94,7 @@ public class NeighbourFragmentFusion extends Fragment implements OnNeighbourList
 
         switch (tabPosition){
             case 0 :
-                mNeighbour=mApiService.getNeighbours();
+                List<Neighbour> mNeighbour = mApiService.getNeighbours();
                 mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbour,this,false));
                 break;
             case 1:
@@ -146,11 +143,10 @@ public class NeighbourFragmentFusion extends Fragment implements OnNeighbourList
 
     @Override
     public void NeighbourClick(int position) {
-        itemClickedPosition = position;
-        neighbour = mFavouriteNeighbour.get(position);
+        Neighbour neighbour = mFavouriteNeighbour.get(position);
 
         Intent intent= new Intent(getContext(), NeighbourProfileActivity.class);
-        intent.putExtra("clicPosition",itemClickedPosition);
+        intent.putExtra("clicPosition", position);
         intent.putExtra("tabPosition",tabPosition);
         startActivity(intent);
 

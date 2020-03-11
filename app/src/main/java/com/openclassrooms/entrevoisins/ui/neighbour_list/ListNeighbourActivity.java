@@ -60,7 +60,6 @@ public class ListNeighbourActivity extends AppCompatActivity implements OnNeighb
                 mTabPosition=tab.getPosition();
                 setTabPosition(tab.getPosition());
                 mViewPager.setCurrentItem(mTabPosition);
-                Log.d(TAG, "onTabSelected() called with: tab = [" + (mTabPosition)+ "]");
 
 
                 Intent intent= new Intent(mViewPager.getContext(), NeighbourProfileActivity.class);
