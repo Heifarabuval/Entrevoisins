@@ -2,7 +2,7 @@
 
 EntreVoisins est une une mini-application pour le P3 du parcours Grande École du Numérique.
 
-
+![entrevoisins](https://user-images.githubusercontent.com/58725327/87661480-f89c4480-c760-11ea-9df3-b46dfba137f9.png | width=100)
 
 Configurer le projet dans Android Studio
 
